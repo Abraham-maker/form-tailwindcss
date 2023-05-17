@@ -5,16 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Form Tailwindcss</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <title>PLANILLA DE AFILIACIÓN</title>
   </head>
   <body class="antialiased sans-serif bg-gray-200">
     <div x-data="app()" x-cloak>
-      <div class="max-w-3xl mx-auto px-4 py-10">
+      <div class="max-w-3xl mx-auto px-4 py-8">
+        <div x-show.transition="step === 'complete'">
+          <div
+            class="bg-white rounded-lg p-10 flex items-center shadow justify-between"
+          >
+            <div>
+              <svg
+                class="mb-4 h-20 w-20 text-green-500 mx-auto"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+
+              <h2 class="text-2xl mb-4 text-gray-800 text-center font-bold">
+                Su plantilla ha sido registrada con éxito
+              </h2>
+
+              <div class="text-gray-600 mb-8">
+                Gracias. Le hemos enviado un correo electrónico a
+                demo@demo.test. Por favor, haga clic en el enlace del mensaje
+                para activar su cuenta.
+              </div>
+
+              <button
+                @click="step = 1"
+                class="w-40 block mx-auto focus:outline-none py-2 px-5 rounded-lg shadow-sm text-center text-gray-600 bg-white hover:bg-gray-100 font-medium border"
+              >
+                Volver
+              </button>
+            </div>
+          </div>
+        </div>
+
         <div x-show.transition="step != 'complete'">
+          <!-- Top Navigation -->
+          <div class="border-b-2">
+            <div
+              class="uppercase tracking-wide text-xs font-bold text-gray-500 leading-tight"
+              x-text="`Paso: ${step} De 6`"
+            ></div>
+          </div>
+          <!-- /Top Navigation -->
           <!-- STEPS CONTENT -->
-          <div class="py-10">
+          <div class="py-5 mb-10">
             <!-- STEP 1 -->
             <div x-show.transition.in="step === 1">
+              <p class="mb-5 font-bold text-xl">DATOS DE LA EMPRESA:</p>
               <div class="mb-5">
                 <label
                   for="firstname"
@@ -40,7 +87,7 @@
                     placeholder="DIRECCIÓN COMPLETA"
                   />
                 </div>
-                <div class="w-full mb-5 sm:pl-4">
+                <div class="w-full mb-5">
                   <label for="input2" class="block text-gray-700 font-bold mb-2"
                     >CÓDIGO POSTAL:</label
                   >
@@ -48,7 +95,7 @@
                     id="input2"
                     class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
                     type="text"
-                    placeholder="CÓDIGO POSTAL:"
+                    placeholder="CÓDIGO POSTAL"
                   />
                 </div>
               </div>
@@ -76,7 +123,7 @@
                     placeholder="FAX"
                   />
                 </div>
-                <div class="w-full mb-5 sm:pl-4">
+                <div class="w-full mb-5">
                   <label for="input2" class="block text-gray-700 font-bold mb-2"
                     >WEB:</label
                   >
@@ -101,7 +148,7 @@
                     placeholder="TWITTER"
                   />
                 </div>
-                <div class="w-full mb-5 sm:pl-4">
+                <div class="w-full mb-5">
                   <label for="input2" class="block text-gray-700 font-bold mb-2"
                     >INSTAGRAM:</label
                   >
@@ -137,10 +184,873 @@
               </div>
             </div>
             <!-- /STEP 1 END -->
+            <!-- STEP 2 -->
+            <div x-show.transition.in="step === 2">
+              <p class="mb-5 font-bold text-xl">ACTIVIDAD PRINCIPAL:</p>
+              <div class="mb-5">
+                <div class="flex flex-wrap justify-between mb-5">
+                  <label class="w-full md:w-1/3 lg:w-1/3 pb-2">
+                    <input
+                      type="checkbox"
+                      name="checkbox1"
+                      value="Checkbox 1"
+                      class="mr-2 leading-tight form-checkbox-custom"
+                    />
+                    <span class="text-sm text-gray-700 font-bold"
+                      >INDUSTRIAL</span
+                    >
+                  </label>
+                  <label class="w-full md:w-1/3 lg:w-1/3 pb-2">
+                    <input
+                      type="checkbox"
+                      name="checkbox2"
+                      value="Checkbox 2"
+                      class="mr-2 leading-tight form-checkbox-custom"
+                    />
+                    <span class="text-sm text-gray-700 font-bold"
+                      >SERVICIOS</span
+                    >
+                  </label>
+                  <label class="w-full md:w-1/3 lg:w-1/3 pb-2">
+                    <input
+                      type="checkbox"
+                      name="checkbox3"
+                      value="Checkbox 3"
+                      class="mr-2 leading-tight form-checkbox-custom"
+                    />
+                    <span class="text-sm text-gray-700 font-bold"
+                      >IMPORTACIÓN</span
+                    >
+                  </label>
+                  <label class="w-full md:w-1/3 lg:w-1/3 pb-2">
+                    <input
+                      type="checkbox"
+                      name="checkbox4"
+                      value="Checkbox 4"
+                      class="mr-2 leading-tight form-checkbox-custom"
+                    />
+                    <span class="text-sm text-gray-700 font-bold"
+                      >COMERCIAL</span
+                    >
+                  </label>
+                  <label class="w-full md:w-1/3 lg:w-1/3 pb-2">
+                    <input
+                      type="checkbox"
+                      name="checkbox5"
+                      value="Checkbox 5"
+                      class="mr-2 leading-tight form-checkbox-custom"
+                    />
+                    <span class="text-sm text-gray-700 font-bold"
+                      >INVERSOR</span
+                    >
+                  </label>
+                  <label class="w-full md:w-1/3 lg:w-1/3 pb-2">
+                    <input
+                      type="checkbox"
+                      name="checkbox6"
+                      value="Checkbox 6"
+                      class="mr-2 leading-tight form-checkbox-custom"
+                    />
+                    <span class="text-sm text-gray-700 font-bold"
+                      >EXPORTACIÓN</span
+                    >
+                  </label>
+                </div>
+
+                <div class="flex flex-col justify-between sm:flex-row">
+                  <div class="w-full mb-5 sm:pr-4">
+                    <label
+                      for="input1"
+                      class="block text-gray-700 font-bold mb-2"
+                      >DATOS COMERCIALES:</label
+                    >
+                    <input
+                      id="input1"
+                      class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                      type="text"
+                      placeholder="DATOS COMERCIALES"
+                    />
+                  </div>
+                  <div class="w-full mb-5">
+                    <label
+                      for="input2"
+                      class="block text-gray-700 font-bold mb-2"
+                      >N. DE EMPLEADOS:</label
+                    >
+                    <input
+                      id="input2"
+                      class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                      type="text"
+                      placeholder="N. DE EMPLEADOS"
+                    />
+                  </div>
+                </div>
+
+                <div class="flex flex-col justify-between sm:flex-row">
+                  <div class="w-full mb-5 sm:pr-4">
+                    <label
+                      for="input1"
+                      class="block text-gray-700 font-bold mb-2"
+                      >CASA MATRIZ:</label
+                    >
+                    <input
+                      id="input1"
+                      class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                      type="text"
+                      placeholder="CASA MATRIZ"
+                    />
+                  </div>
+                  <div class="w-full mb-5">
+                    <label
+                      for="input2"
+                      class="block text-gray-700 font-bold mb-2"
+                      >ES SUCURSAL O FILIAL:</label
+                    >
+                    <input
+                      id="input2"
+                      class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                      type="text"
+                      placeholder="ES SUCURSAL O FILIAL"
+                    />
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap mb-5">
+                  <label class="w-full md:w-1/2 lg:w-1/2 p-2">
+                    <input
+                      type="checkbox"
+                      name="checkbox1"
+                      value="Checkbox 1"
+                      class="mr-2 leading-tight form-checkbox-custom"
+                    />
+                    <span class="text-sm text-gray-700 font-bold"
+                      >FACTURACIÓN MAYOR A USD 1.000.000</span
+                    >
+                  </label>
+                  <label class="w-full md:w-1/2 lg:w-1/2 p-2">
+                    <input
+                      type="checkbox"
+                      name="checkbox2"
+                      value="Checkbox 2"
+                      class="mr-2 leading-tight form-checkbox-custom"
+                    />
+                    <span class="text-sm text-gray-700 font-bold"
+                      >MENOR A USD 1.000.000</span
+                    >
+                  </label>
+                </div>
+
+                <p class="text-base text-gray-700 font-bold">
+                  EMPRESA ESPAÑOLA RADICADA EN VENEZUELA:
+                </p>
+
+                <div class="flex flex-wrap mb-5">
+                  <label class="w-100 p-2">
+                    <input
+                      type="checkbox"
+                      name="checkbox3"
+                      value="Checkbox 3"
+                      class="mr-2 leading-tight form-checkbox-custom"
+                    />
+                    <span class="text-sm text-gray-700 font-bold">SI</span>
+                  </label>
+                  <label class="w-100 p-2">
+                    <input
+                      type="checkbox"
+                      name="checkbox4"
+                      value="Checkbox 4"
+                      class="mr-2 leading-tight form-checkbox-custom"
+                    />
+                    <span class="text-sm text-gray-700 font-bold">NO</span>
+                  </label>
+                </div>
+
+                <p class="mb-5 font-bold text-xl">
+                  REPRESENTANTE ANTE LA CÁMARA:
+                </p>
+
+                <div class="flex flex-col justify-between sm:flex-row">
+                  <div class="w-full mb-5 sm:pr-4">
+                    <label
+                      for="input1"
+                      class="block text-gray-700 font-bold mb-2"
+                      >NOMBRE Y APELLIDO:</label
+                    >
+                    <input
+                      id="input1"
+                      class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                      type="text"
+                      placeholder="NOMBRE Y APELLIDO"
+                    />
+                  </div>
+                  <div class="w-full mb-5">
+                    <label
+                      for="input2"
+                      class="block text-gray-700 font-bold mb-2"
+                      >CARGO:</label
+                    >
+                    <input
+                      id="input2"
+                      class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                      type="text"
+                      placeholder="CARGO"
+                    />
+                  </div>
+                </div>
+
+                <div class="flex flex-col justify-between sm:flex-row">
+                  <div class="w-full mb-5 sm:pr-4">
+                    <label
+                      for="input1"
+                      class="block text-gray-700 font-bold mb-2"
+                      >TELÉFONO:</label
+                    >
+                    <input
+                      id="input1"
+                      class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                      type="text"
+                      placeholder="TELÉFONO"
+                    />
+                  </div>
+                  <div class="w-full mb-5">
+                    <label
+                      for="input2"
+                      class="block text-gray-700 font-bold mb-2"
+                      >FAX:</label
+                    >
+                    <input
+                      id="input2"
+                      class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                      type="text"
+                      placeholder="FAX"
+                    />
+                  </div>
+                </div>
+
+                <div class="flex flex-col justify-between sm:flex-row">
+                  <div class="w-full mb-5 sm:pr-4">
+                    <label
+                      for="input1"
+                      class="block text-gray-700 font-bold mb-2"
+                      >ÁREA:</label
+                    >
+                    <input
+                      id="input1"
+                      class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                      type="text"
+                      placeholder="ÁREA"
+                    />
+                  </div>
+                  <div class="w-full mb-5">
+                    <label
+                      for="input2"
+                      class="block text-gray-700 font-bold mb-2"
+                      >E-MAIL:</label
+                    >
+                    <input
+                      id="input2"
+                      class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                      type="text"
+                      placeholder="E-MAIL"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- STEP 2 END -->
+            <!-- STEP 3 -->
+            <div x-show.transition.in="step === 3">
+              <p class="mb-5 font-bold text-xl">ADMINISTRATIVO:</p>
+              <div class="mb-5">
+                <label
+                  for="firstname"
+                  class="font-bold mb-1 text-gray-700 block"
+                  >NOMBRE Y APELLIDO:</label
+                >
+                <input
+                  type="text"
+                  class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                  placeholder="NOMBRE Y APELLIDO"
+                />
+              </div>
+              <div class="flex flex-col justify-between sm:flex-row">
+                <div class="w-full mb-5 sm:pr-4">
+                  <label for="input1" class="block text-gray-700 font-bold mb-2"
+                    >CARGO</label
+                  >
+                  <input
+                    id="input1"
+                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                    type="text"
+                    placeholder="CARGO"
+                  />
+                </div>
+                <div class="w-full mb-5">
+                  <label for="input2" class="block text-gray-700 font-bold mb-2"
+                    >TELÉFONO:</label
+                  >
+                  <input
+                    id="input2"
+                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                    type="text"
+                    placeholder="TELÉFONO"
+                  />
+                </div>
+              </div>
+              <div class="mb-5">
+                <label
+                  for="firstname"
+                  class="font-bold mb-1 text-gray-700 block"
+                  >FAX:</label
+                >
+                <input
+                  type="text"
+                  class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                  placeholder="FAX"
+                />
+              </div>
+              <div class="flex flex-col justify-between sm:flex-row">
+                <div class="w-full mb-5 sm:pr-4">
+                  <label for="input1" class="block text-gray-700 font-bold mb-2"
+                    >E-MAIL</label
+                  >
+                  <input
+                    id="input1"
+                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                    type="text"
+                    placeholder="E-MAIL"
+                  />
+                </div>
+                <div class="w-full mb-5">
+                  <label for="input2" class="block text-gray-700 font-bold mb-2"
+                    >ÁREA:</label
+                  >
+                  <input
+                    id="input2"
+                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                    type="text"
+                    placeholder="ÁREA"
+                  />
+                </div>
+              </div>
+              <p class="mb-5 font-bold text-xl">MERCADEO:</p>
+
+              <div class="flex flex-col justify-between sm:flex-row">
+                <div class="w-full mb-5 sm:pr-4">
+                  <label for="input1" class="block text-gray-700 font-bold mb-2"
+                    >NOMBRE Y APELLIDO</label
+                  >
+                  <input
+                    id="input1"
+                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                    type="text"
+                    placeholder="NOMBRE Y APELLIDO"
+                  />
+                </div>
+                <div class="w-full mb-5">
+                  <label for="input2" class="block text-gray-700 font-bold mb-2"
+                    >CARGO:</label
+                  >
+                  <input
+                    id="input2"
+                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                    type="text"
+                    placeholder="CARGO"
+                  />
+                </div>
+              </div>
+
+              <div class="flex flex-col justify-between sm:flex-row">
+                <div class="w-full mb-5 sm:pr-4">
+                  <label for="input1" class="block text-gray-700 font-bold mb-2"
+                    >ÁREA</label
+                  >
+                  <input
+                    id="input1"
+                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                    type="text"
+                    placeholder="ÁREA"
+                  />
+                </div>
+                <div class="w-full mb-5">
+                  <label for="input2" class="block text-gray-700 font-bold mb-2"
+                    >TELÉFONO:</label
+                  >
+                  <input
+                    id="input2"
+                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                    type="text"
+                    placeholder="TELÉFONO"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- STEP 3 END -->
+            <!-- STEP 4 -->
+            <div x-show.transition.in="step === 4">
+              <div class="mb-5">
+                <label
+                  for="firstname"
+                  class="font-bold mb-1 text-gray-700 block"
+                  >E-MAIL:</label
+                >
+                <input
+                  type="text"
+                  class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                  placeholder="E-MAIL"
+                />
+              </div>
+              <div class="mb-5">
+                <label
+                  for="firstname"
+                  class="font-bold mb-1 text-gray-700 block"
+                  >FAX:</label
+                >
+                <input
+                  type="text"
+                  class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                  placeholder="FAX"
+                />
+              </div>
+              <p class="mb-5 font-bold text-xl">RECURSOS HUMANOS:</p>
+
+              <div class="mb-5">
+                <label
+                  for="firstname"
+                  class="font-bold mb-1 text-gray-700 block"
+                  >NOMBRE Y APELLIDO:</label
+                >
+                <input
+                  type="text"
+                  class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                  placeholder="NOMBRE Y APELLIDO"
+                />
+              </div>
+              <div class="flex flex-col justify-between sm:flex-row">
+                <div class="w-full mb-5 sm:pr-4">
+                  <label for="input1" class="block text-gray-700 font-bold mb-2"
+                    >CARGO</label
+                  >
+                  <input
+                    id="input1"
+                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                    type="text"
+                    placeholder="CARGO"
+                  />
+                </div>
+                <div class="w-full mb-5">
+                  <label for="input2" class="block text-gray-700 font-bold mb-2"
+                    >TELÉFONO:</label
+                  >
+                  <input
+                    id="input2"
+                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                    type="text"
+                    placeholder="TELÉFONO"
+                  />
+                </div>
+              </div>
+              <div class="mb-5">
+                <label
+                  for="firstname"
+                  class="font-bold mb-1 text-gray-700 block"
+                  >FAX:</label
+                >
+                <input
+                  type="text"
+                  class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                  placeholder="FAX"
+                />
+              </div>
+              <div class="flex flex-col justify-between sm:flex-row">
+                <div class="w-full mb-5 sm:pr-4">
+                  <label for="input1" class="block text-gray-700 font-bold mb-2"
+                    >E-MAIL</label
+                  >
+                  <input
+                    id="input1"
+                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                    type="text"
+                    placeholder="E-MAIL"
+                  />
+                </div>
+                <div class="w-full mb-5">
+                  <label for="input2" class="block text-gray-700 font-bold mb-2"
+                    >ÁREA:</label
+                  >
+                  <input
+                    id="input2"
+                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                    type="text"
+                    placeholder="ÁREA"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- STEP 4 END -->
+            <!-- STEP 5 -->
+            <div x-show.transition.in="step === 5">
+              <p class="mb-5 font-bold text-xl">OTRA AREA:</p>
+
+              <div class="mb-5">
+                <label
+                  for="firstname"
+                  class="font-bold mb-1 text-gray-700 block"
+                  >NOMBRE Y APELLIDO:</label
+                >
+                <input
+                  type="text"
+                  class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                  placeholder="NOMBRE Y APELLIDO"
+                />
+              </div>
+              <div class="flex flex-col justify-between sm:flex-row">
+                <div class="w-full mb-5 sm:pr-4">
+                  <label for="input1" class="block text-gray-700 font-bold mb-2"
+                    >CARGO</label
+                  >
+                  <input
+                    id="input1"
+                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                    type="text"
+                    placeholder="CARGO"
+                  />
+                </div>
+                <div class="w-full mb-5">
+                  <label for="input2" class="block text-gray-700 font-bold mb-2"
+                    >TELÉFONO:</label
+                  >
+                  <input
+                    id="input2"
+                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                    type="text"
+                    placeholder="TELÉFONO"
+                  />
+                </div>
+              </div>
+              <div class="mb-5">
+                <label
+                  for="firstname"
+                  class="font-bold mb-1 text-gray-700 block"
+                  >FAX:</label
+                >
+                <input
+                  type="text"
+                  class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                  placeholder="FAX"
+                />
+              </div>
+              <div class="flex flex-col justify-between sm:flex-row">
+                <div class="w-full mb-5 sm:pr-4">
+                  <label for="input1" class="block text-gray-700 font-bold mb-2"
+                    >E-MAIL</label
+                  >
+                  <input
+                    id="input1"
+                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                    type="text"
+                    placeholder="E-MAIL"
+                  />
+                </div>
+                <div class="w-full mb-5">
+                  <label for="input2" class="block text-gray-700 font-bold mb-2"
+                    >ÁREA:</label
+                  >
+                  <input
+                    id="input2"
+                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                    type="text"
+                    placeholder="ÁREA"
+                  />
+                </div>
+              </div>
+              <p class="mb-5 font-bold text-xl">
+                ACTIVIDAD DE LA EMPRESA (SEGÚN PRODUCTO):
+              </p>
+              <div class="flex flex-wrap justify-between mb-5">
+                <label class="w-full md:w-1/4 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox1"
+                    value="Checkbox 1"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold"
+                    >FABRICANTE</span
+                  >
+                </label>
+                <label class="w-full md:w-1/4 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox2"
+                    value="Checkbox 2"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold"
+                    >AGENTE COMERCIAL</span
+                  >
+                </label>
+                <label class="w-full md:w-1/4 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox3"
+                    value="Checkbox 3"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold"
+                    >IMPORTADOR</span
+                  >
+                </label>
+                <label class="w-full md:w-1/4 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox4"
+                    value="Checkbox 4"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold"
+                    >DISTRIBUIDOR</span
+                  >
+                </label>
+                <label class="w-full md:w-1/4 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox5"
+                    value="Checkbox 5"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold">TRADER</span>
+                </label>
+                <label class="w-full md:w-1/4 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox6"
+                    value="Checkbox 6"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold"
+                    >EXPORTADOR</span
+                  >
+                </label>
+                <label class="w-full md:w-1/4 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox5"
+                    value="Checkbox 5"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold">MAYORISTA</span>
+                </label>
+                <label class="w-full md:w-1/4 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox6"
+                    value="Checkbox 6"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold"
+                    >REPRESENTANTE</span
+                  >
+                </label>
+                <label class="w-full md:w-1/4 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox6"
+                    value="Checkbox 6"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold">SERVICIOS</span>
+                </label>
+              </div>
+              <p class="mb-5 font-bold text-xl">
+                ACTIVIDAD DE LA EMPRESA (SEGÚN LAS MARCAS QUE COMERCIALIZA):
+              </p>
+              <div class="flex flex-wrap justify-between mb-5">
+                <label class="w-full md:w-1/4 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox1"
+                    value="Checkbox 1"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold"
+                    >FABRICANTE</span
+                  >
+                </label>
+                <label class="w-full md:w-1/4 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox2"
+                    value="Checkbox 2"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold"
+                    >AGENTE COMERCIAL
+                  </span>
+                </label>
+                <label class="w-full md:w-1/4 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox3"
+                    value="Checkbox 3"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold"
+                    >IMPORTADOR</span
+                  >
+                </label>
+                <label class="w-full md:w-1/4 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox4"
+                    value="Checkbox 4"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold"
+                    >DISTRIBUIDOR</span
+                  >
+                </label>
+                <label class="w-full md:w-1/4 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox5"
+                    value="Checkbox 5"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold">TRADER</span>
+                </label>
+                <label class="w-full md:w-1/4 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox6"
+                    value="Checkbox 6"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold"
+                    >EXPORTADOR</span
+                  >
+                </label>
+                <label class="w-full md:w-1/4 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox5"
+                    value="Checkbox 5"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold">MAYORISTA</span>
+                </label>
+                <label class="w-full md:w-1/4 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox6"
+                    value="Checkbox 6"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold"
+                    >REPRESENTANTE</span
+                  >
+                </label>
+                <label class="w-full md:w-1/4 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox6"
+                    value="Checkbox 6"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold">SERVICIOS</span>
+                </label>
+              </div>
+            </div>
+            <!-- STEP 5 END -->
+            <!-- STEP 6 -->
+            <div x-show.transition.in="step === 6">
+              <p class="mb-5 font-bold text-xl">
+                ZONAS DE COMERCIO EXTERIOR A LAS QUE LA EMPRESA IMPORTA O
+                EXPORTA:
+              </p>
+              <div class="mb-5">
+                <label
+                  for="firstname"
+                  class="font-bold mb-1 text-gray-700 block"
+                  >ZONAS:</label
+                >
+                <input
+                  type="text"
+                  class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                  placeholder="ZONAS"
+                />
+              </div>
+
+              <div class="flex flex-wrap mb-5">
+                <label class="w-full md:w-1/2 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox1"
+                    value="Checkbox 1"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold">IMPORTAR</span>
+                </label>
+                <label class="w-full md:w-1/2 lg:w-1/4 pb-2">
+                  <input
+                    type="checkbox"
+                    name="checkbox2"
+                    value="Checkbox 2"
+                    class="mr-2 leading-tight form-checkbox-custom"
+                  />
+                  <span class="text-sm text-gray-700 font-bold">EXPORTAR</span>
+                </label>
+              </div>
+              <p class="font-bold mb-1 text-gray-700 block">OBSERVACIONES:</p>
+              <textarea
+                class="w-full h-40 block appearance-none border border-gray-400 rounded py-2 px-4 leading-tight focus:outline-none focus:border-blue-500"
+                placeholder="Ingrese su texto aquí"
+                style="resize: none"
+              ></textarea>
+            </div>
+            <!-- STEP 6 END -->
           </div>
           <!-- / STEPS CONTENT END -->
         </div>
       </div>
+      <!-- BOTTOM NAVIGATIONS -->
+      <div
+        class="fixed bottom-0 left-0 right-0 py-5 bg-white shadow-md"
+        x-show="step != 'complete'"
+      >
+        <div class="max-w-3xl mx-auto px-4">
+          <div class="flex justify-between">
+            <div class="w-1/2">
+              <button
+                x-show="step > 1"
+                @click="step--"
+                class="w-32 focus:outline-none py-2 px-5 rounded-lg shadow-sm text-center text-gray-600 bg-white hover:bg-gray-100 font-medium border"
+              >
+                Atrás
+              </button>
+            </div>
+
+            <div class="w-1/2 text-right">
+              <button
+                x-show="step < 6"
+                @click="step++"
+                class="w-32 focus:outline-none border border-transparent py-2 px-5 rounded-lg shadow-sm text-center text-white bg-blue-500 hover:bg-blue-600 font-medium"
+              >
+                Continuar
+              </button>
+
+              <button
+                @click="step = 'complete'"
+                x-show="step === 6"
+                class="w-32 focus:outline-none border border-transparent py-2 px-5 rounded-lg shadow-sm text-center text-white bg-blue-500 hover:bg-blue-600 font-medium"
+              >
+                Registrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- BOTTOM NAVIGATIONS END -->
     </div>
 
     <script src="./script/App.js"></script>
